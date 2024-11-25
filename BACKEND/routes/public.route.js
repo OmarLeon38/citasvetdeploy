@@ -9,8 +9,14 @@ const __filename = fileURLToPath(import.meta.url); // Nombre del archivo actual
 const __dirname = path.dirname(__filename); // Directorio actual
 const publicPath = path.join(__dirname, '../../FRONTEND/public'); // Ruta a la carpeta `public`
 
-// Rutas para servir archivos HTML desde la carpeta `public`
 
+
+// Ruta para redirigir desde la raíz a la página principal
+router.get('/', (req, res) => {     
+    res.redirect('/pagina-principal'); // Redirige a la página principal o cualquier página deseada
+});
+
+// Rutas para servir archivos HTML desde la carpeta `public`
 router.get('/pagina-principal', (req, res) => {
     res.sendFile(path.join(publicPath, "paginaPrincipal.html")); // Página principal
 });
